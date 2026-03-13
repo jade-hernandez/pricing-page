@@ -1,5 +1,6 @@
+import FaqSection from "./components/pricing-faq-section/FaqSection";
 import Navbar from "./components/navigation/Navbar";
-import { PricingTiers } from "./components/pricing-tiers/PricingTiers";
+import { PricingTiers } from "./components/pricing-tiers-section/PricingTiers";
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <Navbar />
       <main className='m-4 flex flex-col rounded-md bg-white'>
         <PricingTiers />
+        <FaqSection />
       </main>
     </div>
   );
