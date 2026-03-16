@@ -8,16 +8,18 @@ import FooterSection from "./components/footer-section/FooterSection";
 
 function App() {
   return (
-    <div className='mx-auto flex min-h-screen w-full min-w-dvw flex-col items-center bg-linear-to-r from-[#F9FAFB] to-[#D2D6DB] pt-4'>
+    <div className='mx-auto flex min-h-screen w-full min-w-dvw flex-col items-center bg-linear-to-r from-[#F9FAFB] to-[#D2D6DB] p-4'>
       <Navbar />
-      <main className='m-4 flex flex-col rounded-md bg-white'>
-        <PricingTiers />
-        <FaqSection />
-        <FeaturesSection />
-        <TestimonialsSection />
-        <ContactSection />
+      <div className='flex w-full flex-col rounded-md bg-white'>
+        <main className='flex flex-col'>
+          <PricingTiers />
+          <FaqSection />
+          <FeaturesSection />
+          <TestimonialsSection />
+          <ContactSection />
+        </main>
         <FooterSection />
-      </main>
+      </div>
     </div>
   );
 }
