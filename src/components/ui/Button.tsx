@@ -8,7 +8,7 @@ import { cn } from "../../utils/utils";
 export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
-export default function Button({ variant, size, className, children, ...rest }: ButtonProps) {
+function Button({ variant, size, className, children, ...rest }: ButtonProps) {
   return (
     <button
       className={cn(buttonVariants({ variant, size }), className)}
@@ -18,3 +18,5 @@ export default function Button({ variant, size, className, children, ...rest }: 
     </button>
   );
 }
+
+export default Button;

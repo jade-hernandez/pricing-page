@@ -2,16 +2,17 @@ import * as Accordion from "@radix-ui/react-accordion";
 
 import { AccordionTrigger, AccordionContent } from "../ui/Accordion";
 
-interface TFaqItem {
+import IconFaqClose from "./icons/FaqCloseIcon";
+import IconFaqOpen from "./icons/FaqOpenIcon";
+
+interface FaqItemProps {
   position: number;
   title: string;
   content: string;
   isLast?: boolean;
 }
 
-const FaqItem = (props: TFaqItem) => {
-  const { position, title, content, isLast = false } = props;
-
+function FaqItem({ position, title, content, isLast = false }: FaqItemProps) {
   return (
     <>
       <Accordion.Root
@@ -21,14 +22,19 @@ const FaqItem = (props: TFaqItem) => {
         collapsible
       >
         <Accordion.Item value={`item-${position}`}>
-          <AccordionTrigger>{title}</AccordionTrigger>
+          <AccordionTrigger
+            iconOpen={<IconFaqOpen />}
+            iconClose={<IconFaqClose />}
+          >
+            {title}
+          </AccordionTrigger>
           <AccordionContent>{content}</AccordionContent>
         </Accordion.Item>
       </Accordion.Root>
 
-      {isLast ? null : <hr className='my-7 h-px border-neutral-300' />}
+      {!isLast && <hr className='my-7 h-px border-neutral-300' />}
     </>
   );
-};
+}
 
 export default FaqItem;

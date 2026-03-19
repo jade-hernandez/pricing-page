@@ -1,14 +1,14 @@
 import type { AnchorHTMLAttributes } from "react";
 import type { VariantProps } from "class-variance-authority";
 
-import { buttonVariants } from "./button-variants";
-
 import { cn } from "../../utils/utils";
+
+import { buttonVariants } from "./button-variants";
 
 export type LinkProps = AnchorHTMLAttributes<HTMLAnchorElement> &
   VariantProps<typeof buttonVariants>;
 
-export default function Link({ variant, size, className, children, ...rest }: LinkProps) {
+function Link({ variant, size, className, children, ...rest }: LinkProps) {
   return (
     <a
       className={cn(buttonVariants({ variant, size }), className)}
@@ -18,3 +18,5 @@ export default function Link({ variant, size, className, children, ...rest }: Li
     </a>
   );
 }
+
+export default Link;

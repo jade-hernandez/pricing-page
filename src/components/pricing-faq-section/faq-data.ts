@@ -1,10 +1,10 @@
-type TFAQContent = {
+type FaqContent = {
   position: number;
   title: string;
   content: string;
 };
 
-const faqContentData: TFAQContent[] = [
+const faqContentData: FaqContent[] = [
   {
     position: 0,
     title: "Are there any discounts available for long-term subscriptions?",

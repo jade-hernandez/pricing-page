@@ -1,18 +1,18 @@
-import React from "react";
+import { forwardRef } from "react";
+import type { ComponentPropsWithoutRef, ReactNode } from "react";
 
 import * as Accordion from "@radix-ui/react-accordion";
 
-import IconFaqClose from "../pricing-faq-section/icons/FaqCloseIcon";
-import IconFaqOpen from "../pricing-faq-section/icons/FaqOpenIcon";
-
 import { cn } from "../../utils/utils";
 
-interface AccordionTriggerProps extends React.ComponentPropsWithoutRef<typeof Accordion.Trigger> {
-  children: React.ReactNode;
+interface AccordionTriggerProps extends ComponentPropsWithoutRef<typeof Accordion.Trigger> {
+  children: ReactNode;
+  iconOpen: ReactNode;
+  iconClose: ReactNode;
 }
 
-const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
-  ({ children, className, ...props }, forwardedRef) => (
+const AccordionTrigger = forwardRef<HTMLButtonElement, AccordionTriggerProps>(
+  ({ children, className, iconOpen, iconClose, ...props }, forwardedRef) => (
     <Accordion.Header className='flex'>
       <Accordion.Trigger
         className={cn(
@@ -24,14 +24,18 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
       >
         {children}
         <div className='relative flex h-6 w-12 items-start justify-center pt-1'>
-          <IconFaqClose
+          <span
             aria-hidden
             className='hidden size-6 group-data-[state=open]:block'
-          />
-          <IconFaqOpen
+          >
+            {iconClose}
+          </span>
+          <span
             aria-hidden
             className='block size-6 group-data-[state=open]:hidden'
-          />
+          >
+            {iconOpen}
+          </span>
         </div>
       </Accordion.Trigger>
     </Accordion.Header>
@@ -40,11 +44,11 @@ const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerPro
 
 AccordionTrigger.displayName = "AccordionTrigger";
 
-interface AccordionContentProps extends React.ComponentPropsWithoutRef<typeof Accordion.Content> {
-  children: React.ReactNode;
+interface AccordionContentProps extends ComponentPropsWithoutRef<typeof Accordion.Content> {
+  children: ReactNode;
 }
 
-const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(
+const AccordionContent = forwardRef<HTMLDivElement, AccordionContentProps>(
   ({ children, className, ...props }, forwardedRef) => (
     <Accordion.Content
       className={cn(
