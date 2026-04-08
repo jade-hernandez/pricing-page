@@ -6,7 +6,7 @@ import { FeaturesSection } from "./components/features-section/FeaturesSection";
 import { TestimonialsSection } from "./components/testimonials-section/TestimonialsSection";
 import { ContactSection } from "./components/contact-section/ContactSection";
 
-import { FooterSection } from "./components/footer-section/FooterSection";
+import { Footer } from "./components/footer-section/Footer";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
           <TestimonialsSection />
           <ContactSection />
         </main>
-        <FooterSection />
+        <Footer />
       </div>
     </div>
   );
