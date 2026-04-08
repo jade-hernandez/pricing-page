@@ -50,8 +50,8 @@ function ContactSection() {
         </div>
       )}
       <section
-        className='flex w-full flex-col gap-16 rounded-md bg-white px-3 py-12 md:px-4 md:py-16 lg:flex-row lg:justify-center lg:p-24'
         aria-labelledby='contact-heading'
+        className='mx-auto flex max-w-[calc(100%-1.5rem)] flex-col items-center justify-center gap-12 py-12 md:max-w-[calc(100%-2rem)] md:gap-16 md:py-16 lg:py-24 xl:max-w-304'
       >
         <div className='flex max-w-304 flex-col gap-12 md:gap-16 lg:flex-row lg:gap-8'>
           <div className='flex w-full flex-col items-start justify-between gap-10 md:gap-12 lg:max-w-[calc(50%-16px)] lg:py-2.75'>
@@ -74,7 +74,7 @@ function ContactSection() {
                     key={label}
                     className='flex items-center gap-3'
                   >
-                    <div className='flex size-12 items-center justify-center rounded-full bg-white shadow-[0_1px_3px_rgba(0,0,0,0.10),0_1px_2px_rgba(0,0,0,0.06)]'>
+                    <div className='flex size-12 items-center justify-center rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.10),0_1px_2px_rgba(0,0,0,0.06)]'>
                       <Icon className='size-6 text-indigo-700' />
                     </div>
                     {href ? (
@@ -183,7 +183,7 @@ function ContactSection() {
                 variant='primary'
                 size='md'
                 disabled={isLoading}
-                className='w-full justify-center focus:shadow-[0_0px_0px_1px_rgba(68,76,231,1),0_0px_0px_4px_rgba(68,76,231,0.12)]'
+                className='focus:shadow-[0_0px_0px_1px_rgba(68,76,231,1),0_0px_0px_4px_rgba(68,76,231,0.12)]'
               >
                 {isLoading ? "Sending..." : "Submit"}
               </Button>
