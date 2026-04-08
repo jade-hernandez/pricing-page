@@ -1,6 +1,6 @@
 import { footerIcons, footerLinks } from "./footer-data";
 
-import { Link } from "../ui/Link";
+import { Link } from "../../components/ui/Link";
 
 const CURRENT_YEAR = 2026;
 
