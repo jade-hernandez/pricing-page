@@ -32,7 +32,6 @@ function Pricing({
   billingCycle = "month",
   subText,
   variant = "default",
-  className,
   ...props
 }: PricingProps) {
   const priceAsNumber = Number(price);
@@ -49,7 +48,7 @@ function Pricing({
 
   return (
     <div
-      className={cn("flex flex-col gap-2", className)}
+      className='flex flex-col gap-2 lg:px-8'
       {...props}
     >
       <div className='flex items-baseline'>

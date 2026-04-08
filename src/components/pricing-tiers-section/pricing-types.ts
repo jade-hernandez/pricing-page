@@ -3,7 +3,7 @@ export type BillingCycle = "month" | "year";
 export type Variant = "default" | "highlighted";
 export type ButtonVariant = "primary" | "secondary";
 
-export interface PricingPlan {
+export type PricingPlan = {
   title: string;
   description: string;
   monthlyPrice: string;
@@ -14,4 +14,4 @@ export interface PricingPlan {
   headingText?: string;
   variant?: Variant;
   buttonVariant?: ButtonVariant;
-}
+};

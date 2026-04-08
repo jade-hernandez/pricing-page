@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { SegmentedControl } from "../ui/Switch";
+import { SegmentedControl } from "../../components/ui/Switch";
 
 import { PriceCard } from "./PriceCard";
 import { pricingPlans } from "./pricing-data";
@@ -10,16 +10,16 @@ function PricingTiers() {
 
   return (
     <section
-      className='flex flex-col items-center gap-12 px-3 py-12 md:gap-16 md:px-4 md:py-16 lg:p-24'
       aria-labelledby='pricing-heading'
+      className='mx-auto flex max-w-[calc(100%-1.5rem)] flex-col items-center justify-center gap-12 py-12 md:max-w-[calc(100%-2rem)] md:gap-16 md:py-16 xl:py-24'
     >
       <div className='flex flex-col items-center gap-10 text-center'>
         <div className='flex flex-col gap-5 md:px-8 lg:px-40'>
           <div className='flex flex-col gap-3'>
             <span className='text-base font-semibold text-indigo-700'>Pricing Tiers</span>
             <h1
-              className='text-3xl font-semibold text-neutral-900 md:text-5xl'
               id='pricing-heading'
+              className='text-3xl font-semibold text-neutral-900 md:text-5xl'
             >
               Fit for all your needs
             </h1>
@@ -36,7 +36,7 @@ function PricingTiers() {
         />
       </div>
 
-      <div className='flex w-full flex-col items-center gap-6 md:gap-8 lg:flex-row lg:items-stretch lg:justify-center'>
+      <div className='flex w-full flex-col items-center gap-8 lg:flex-row lg:items-stretch'>
         {pricingPlans.map(plan => (
           <PriceCard
             key={plan.title}

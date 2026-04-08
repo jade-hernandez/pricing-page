@@ -13,7 +13,7 @@ function FeatureListItem({ content }: { content: string }) {
 
 function FeatureList({ items }: { items: string[] }) {
   return (
-    <ul className='flex h-full flex-col gap-5 md:min-h-44'>
+    <ul className='flex h-full flex-col gap-5 md:min-h-45 lg:min-h-[65.5] lg:px-8'>
       {items.map(item => (
         <FeatureListItem
           key={item}
