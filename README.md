@@ -18,8 +18,8 @@ This project is part of a GreatFrontEnd challenge focused on building a complete
 - **Features grid** — Six feature cards driven by `cardsData`, wrapping from one to three columns depending on width.
 - **Testimonials layout** — Splits the nine testimonials into balanced 2-column (md) and 3-column (lg), collapsing to a single stacked column on mobile.
 - **Contact form** — `useContactForm` reducer validates name, email format, and message length (≤500 characters), submits to the GreatFrontEnd API endpoint, and swaps in a success state or error toast depending on the response.
-- **Sticky navbar** — Background switches to a blurred white once the page scrolls past 10px.
-- **Mobile menu** — Slide-in drawer rendered through a `Portal` into `#portal-root`; a `useFocusTrap` hook keeps Tab cycling inside the panel and restores focus on close, with Escape also closing it.
+- **Sticky navbar** — background switches to blurred white as the page scrolls.
+- **Mobile menu** — slide-in drawer rendered via `Portal`; closes on Escape or overlay click, with focus trapped inside via `useFocusTrap`.
 - **Care for A11y** — semantic HTML, ARIA attributes, WAI-ARIA patterns.
 
 ## Stack
