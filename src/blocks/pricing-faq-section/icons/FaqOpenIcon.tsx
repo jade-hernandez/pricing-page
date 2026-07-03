@@ -1,6 +1,6 @@
-interface IconProps {
+type IconProps = {
   className?: string;
-}
+};
 
 function IconFaqOpen(props: IconProps) {
   return (
