@@ -12,14 +12,14 @@ This project is part of a GreatFrontEnd challenge focused on building a complete
 
 ## Features
 
-- **Billing cycle toggle** — Switch between monthly and annual pricing with labels and subtext updating accordingly.
-- **Pricing plan cards** — Three tiers (Basic, Standard, Premium) with a highlighted featured card variant.
-- **FAQ accordion** — Collapsible items with custom open/close icons; each item collapses independently.
-- **Features grid** — Six feature cards, responsive from one to three columns.
-- **Testimonials** — Responsive masonry layout adapting from one to three columns across breakpoints.
-- **Contact form** — Name, email, and message fields with inline validation, error handling, and success/error feedback via toast.
-- **Sticky navbar** — With scroll-aware background.
-- **Mobile menu** — Slide-in drawer with focus trap and keyboard navigation.
+- **Billing cycle toggle** — `SegmentedControl` switches between "Monthly" and "Annually," recalculating price, cycle label, and annual total per plan.
+- **Pricing plan cards** — Three tiers (Basic, Standard, Premium) rendered from a single `pricingPlans` array; the Standard plan sets `isFeatured` to show the "Most Popular" badge and highlighted border/shadow styling.
+- **Independent FAQ accordions** — Each `FaqItem` wraps its own Radix `Accordion.Root`, so expanding one item doesn't affect the others.
+- **Features grid** — Six feature cards driven by `cardsData`, wrapping from one to three columns depending on width.
+- **Testimonials layout** — Splits the nine testimonials into balanced 2-column (md) and 3-column (lg), collapsing to a single stacked column on mobile.
+- **Contact form** — `useContactForm` reducer validates name, email format, and message length (≤500 characters), submits to the GreatFrontEnd API endpoint, and swaps in a success state or error toast depending on the response.
+- **Sticky navbar** — Background switches to a blurred white once the page scrolls past 10px.
+- **Mobile menu** — Slide-in drawer rendered through a `Portal` into `#portal-root`; a `useFocusTrap` hook keeps Tab cycling inside the panel and restores focus on close, with Escape also closing it.
 - **Care for A11y** — semantic HTML, ARIA attributes, WAI-ARIA patterns.
 
 ## Stack
@@ -31,27 +31,26 @@ This project is part of a GreatFrontEnd challenge focused on building a complete
 - **CVA** — Component variant management for buttons, links, and pricing display.
 - **clsx** + **tailwind-merge** — Conditional class merging without specificity conflicts.
 - **react-icons** — Icon set for the contact section and success state.
-- **pnpm** — Package manager.
 
 ## Project Structure
 
 ```
 src/
 ├── blocks/
-│   ├── contact-section/          # Form, useContactForm reducer, validation, Toast, FormSuccess
-│   ├── features-section/         # Feature cards, icons, data
-│   ├── pricing-faq-section/      # Accordion items, data, open/close icons
-│   ├── pricing-tiers-section/    # PriceCard, Pricing, FeatureList, FeatureIcon, data, types
-│   └── testimonials-section/     # TestimonialCard, data
+│   ├── contact-section/          # Form, useContactForm reducer, Toast, FormSuccess
+│   ├── features-section/         # FeaturesSection, FeatureCard, icons, data
+│   ├── pricing-faq-section/      # FaqSection, FaqItem, data, open/close icons
+│   ├── pricing-tiers-section/    # PricingTiers, PriceCard, Pricing, FeatureList, FeatureIcon, data, types
+│   └── testimonials-section/     # TestimonialsSection, TestimonialCard, data, profile images
 ├── components/
-│   ├── footer/                   # Footer with nav links and social icons
-│   ├── navigation/               # Navbar, MobileMenu, Portal, icons
-│   └── ui/                       # Button, Link, Accordion, Switch, Toast, Textarea, Badge
+│   ├── footer/                   # Footer, footer link/icon data, social icons
+│   ├── navigation/                # Navbar, MobileMenu, nav link data, icons
+│   └── ui/                        # Button, Link, Accordion, Switch (SegmentedControl), Toast, Textarea, Badge, Portal
 ├── hooks/
 │   ├── useMediaQuery.ts          # Breakpoint detection (mobile | tablet | desktop)
 │   └── useFocusTrap.ts           # Keyboard focus containment for the mobile drawer
 └── utils/
-    ├── cn.ts                     # clsx + tailwind-merge helper
+    ├── utils.ts                  # cn() — clsx + tailwind-merge helper
     └── validation.ts             # Email regex validator
 ```
 
